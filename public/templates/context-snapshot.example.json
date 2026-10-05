@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1.0",
+  "snapshot_id": "clientes-ejemplo-1",
+  "profile_id": "prueba",
+  "organization_id": "org-ficticia",
+  "actor_uid": null,
+  "account_reference": "cuenta-ficticia@example.invalid",
+  "category": "clients",
+  "observed_at": "2026-10-05T12:00:00Z",
+  "source": {"type": "qrclima_ui", "reference": "ejemplo-ficticio:lectura-clientes"},
+  "coverage": {"state": "partial", "scope": "Primera pagina ficticia de clientes; no representa la base completa", "next_cursor": "pagina-ficticia-2"},
+  "records": [
+    {"record_id": "cliente-ficticio-1", "data": {"name": "Cliente de demostracion", "phone": "+52 000 000 1234"}, "evidence_refs": ["ejemplo-ficticio:cliente-1"]}
+  ]
+}

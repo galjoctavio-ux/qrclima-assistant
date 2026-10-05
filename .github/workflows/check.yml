@@ -1,0 +1,17 @@
+name: Public kit checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m unittest discover -s tests -q
+      - run: python tools/check_public.py --tracked --history
+      - run: python tools/build_package.py --format workspace --output ./dist/qrclima-asistente-ci.zip

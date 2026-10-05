@@ -1,0 +1,12 @@
+{
+  "changes": [
+    {
+      "path": "/person/display_name",
+      "value": {"value": "Persona de prueba", "status": "declared", "source": {"type": "user", "reference": "ejemplo-ficticio:respuesta-1"}, "observed_at": "2026-10-05T12:00:00Z", "verified_at": null}
+    },
+    {
+      "path": "/person/language",
+      "value": {"value": "es", "status": "declared", "source": {"type": "user", "reference": "ejemplo-ficticio:respuesta-2"}, "observed_at": "2026-10-05T12:00:00Z", "verified_at": null}
+    }
+  ]
+}

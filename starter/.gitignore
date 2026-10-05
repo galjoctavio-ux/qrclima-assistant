@@ -1,0 +1,11 @@
+.qrclima/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.log
+CLAUDE.local.md
+.claude/settings.local.json
+.gemini/settings.json
+.kimi/
+.kimi-code/

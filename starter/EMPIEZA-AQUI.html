@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light"><title>Empieza con tu asistente QRclima</title>
+  <style>
+    :root{font-family:Inter,Segoe UI,Arial,sans-serif;color:#142731;background:#eff5f5;font-size:16px}
+    *{box-sizing:border-box}body{margin:0}main{max-width:1100px;margin:auto;padding:48px 28px 36px}
+    .brand{font-weight:800;letter-spacing:-.04em;font-size:24px;display:flex;align-items:center;gap:11px}.mark{background:#14535b;border-radius:12px;color:#fff;padding:9px 10px;font-size:15px;letter-spacing:0}
+    .eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:12px;font-weight:700;color:#487a7d;margin-top:50px}h1{font-size:clamp(38px,5.2vw,64px);line-height:1.05;letter-spacing:-.055em;max-width:800px;margin:16px 0 22px;font-weight:760}
+    .lead{font-size:19px;line-height:1.55;max-width:750px;color:#48616d}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:36px 0}.step{background:white;border:1px solid #dbe6e7;border-radius:20px;padding:23px 20px}.number{display:inline-flex;background:#e4f2ee;color:#14535b;border-radius:50%;width:32px;height:32px;align-items:center;justify-content:center;font-weight:750}.step h2{font-size:19px;margin:20px 0 9px;letter-spacing:-.02em}.step p{font-size:14px;line-height:1.55;color:#506570;margin:0}
+    .prompt{border-radius:24px;background:#143d46;color:white;padding:30px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start}.prompt h2{font-size:22px;margin:0 0 14px;letter-spacing:-.025em}.prompt p{font-size:16px;line-height:1.65;margin:0;max-width:800px;color:#e3f0ef}
+    button{border:0;cursor:pointer;background:#c4f0dc;color:#103b41;padding:13px 18px;border-radius:12px;font:inherit;font-weight:700;white-space:nowrap}button:focus-visible,a:focus-visible{outline:3px solid #dfaa37;outline-offset:4px}.status{min-height:20px;font-size:13px;margin-top:12px;color:#c4f0dc}
+    .after{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:36px 0}.after h2{font-size:21px;letter-spacing:-.025em}.after p,.after li{color:#48616d;line-height:1.65;font-size:15px}.after ul{padding-left:20px}.after li{margin-bottom:7px}details{border-top:1px solid #cddedf;padding:20px 0;color:#345762}summary{cursor:pointer;font-weight:700}details p{line-height:1.65;max-width:850px}a{color:#14535b;font-weight:650}.footer{font-size:12px;color:#59727b;margin-top:28px;line-height:1.6}
+    @media(max-width:800px){main{padding:30px 18px}.eyebrow{margin-top:35px}.steps{grid-template-columns:repeat(2,1fr)}.prompt{grid-template-columns:1fr}.after{grid-template-columns:1fr;gap:12px}}
+    @media(max-width:420px){.steps{grid-template-columns:1fr}.step{padding:18px}.step h2{margin-top:12px}.prompt{padding:24px}}
+    @media print{body{background:white}main{padding:12px}.eyebrow{margin-top:20px}.steps{gap:8px}.prompt{background:#f4f8f8;color:#142731}.prompt p{color:#345762}button,.status{display:none}details{display:block}.footer{margin-top:12px}}
+  </style>
+</head>
+<body><main>
+  <div class="brand"><span class="mark">QR</span> QRclima <span style="font-weight:400;color:#658089;font-size:15px;letter-spacing:0">/ tu asistente</span></div>
+  <div class="eyebrow">Una carpeta · una conversación · tu cuenta</div>
+  <h1>Tu negocio, listo para conversar.</h1>
+  <p class="lead">Abre esta carpeta en tu agente. El asistente te ayuda a conectar QRclima, conocer tu información y preparar tus primeras tareas.</p>
+  <section class="steps" aria-label="Primeros pasos">
+    <article class="step"><span class="number">1</span><h2>Elige tu carpeta</h2><p>Descomprime el ZIP donde prefieras. Puedes renombrarla y conservar ahí tu asistente.</p></article>
+    <article class="step"><span class="number">2</span><h2>Elige tu agente</h2><p>Codex, Claude Code, Gemini CLI, Kimi u otro host con herramientas. Abre un chat ligado a esta carpeta.</p></article>
+    <article class="step"><span class="number">3</span><h2>Envía el primer mensaje</h2><p>Copia el texto de abajo. El asistente prepara el perfil y comprueba las herramientas disponibles.</p></article>
+    <article class="step"><span class="number">4</span><h2>Conecta QRclima</h2><p>Inicia sesión en el navegador que uses con el asistente y selecciona tu organización.</p></article>
+  </section>
+  <section class="prompt" aria-labelledby="prompt-title"><div><h2 id="prompt-title">Copia esto en tu primer chat</h2><p id="starter-prompt">Configura mi asistente de QRclima en esta carpeta. Lee AGENTS.md, ayúdame a conectar mi sesión y conoce la información accesible de mi organización: empresa, clientes, conceptos, citas, cotizaciones y documentos. Guarda el contexto local con sus fuentes y pregúntame solo lo que falte. La configuración inicial es de lectura; después te pediré las operaciones que necesite.</p><div class="status" id="copy-status" role="status" aria-live="polite"></div></div><button id="copy-prompt" type="button">Copiar mensaje</button></section>
+  <section class="after"><div><h2>Después, habla con naturalidad</h2><ul><li>«Ayúdame a registrar esta cita».</li><li>«Prepara una venta con estos conceptos».</li><li>«Busca el cliente terminado en 1234».</li><li>«Revisa lo que sigue pendiente».</li></ul></div><div><h2>La configuración se guarda</h2><p>El perfil y el contexto permanecen en tu carpeta privada. El asistente muestra qué pudo consultar, qué está pendiente y cuándo necesita información adicional. Antes de una operación, comprueba QRclima de nuevo.</p></div></section>
+  <details><summary>¿Cómo permito acceso a mi navegador?</summary><p>En Codex, revisa Configuración → Computer Use/Uso del ordenador y conecta el navegador desde el menú @. También puedes usar @Browser. En otros agentes usa su controlador y documentación. Entra a QRclima con tu propia cuenta. La disponibilidad depende del cliente, versión y cuenta.</p><p>Consulta la <a href="https://learn.chatgpt.com/docs/chrome-extension" target="_blank" rel="noopener noreferrer">guía de navegador de Codex</a> y la <a href="COMPATIBILIDAD.md">compatibilidad por agente</a>.</p></details>
+  <details><summary>¿Necesito varios chats, Firebase o una máquina virtual?</summary><p>Empieza con un solo chat. La vía inicial usa tu sesión del portal. Las herramientas del navegador y un runtime local de Python deben estar disponibles; el agente los comprueba. Los chats especializados y las conexiones adicionales se incorporan cuando te sirvan.</p></details>
+  <details><summary>¿Qué información conoce y qué queda pendiente?</summary><p>Consulta lo accesible de tu empresa, clientes, conceptos, citas, cotizaciones y documentos. Registra alcance, fecha y fuente. Algunas listas pueden quedar parciales o bloqueadas por permisos. WhatsApp necesita su propia conexión. Un PDF por generar queda pendiente de una tarea explícita.</p></details>
+  <details><summary>¿Cómo guardo preferencias o propongo mejoras?</summary><p>Indica si tu petición es personal o global. El asistente distingue el alcance y mantiene tus valores privados. El kit ofrece espacios vacíos para otros usuarios. Las propuestas se registran localmente; su publicación se revisa por separado.</p></details>
+  <div class="footer">QRclima asistente · piloto 0.3.0. Requiere herramientas y acceso al proveedor de tu agente. Esta guía funciona localmente y no conecta servicios. Para compartir, utiliza el ZIP público original. <a href="README.md">Leer instrucciones completas</a>.</div>
+</main><script>
+  document.getElementById('copy-prompt').addEventListener('click', async () => {
+    const value = document.getElementById('starter-prompt').textContent;
+    const status = document.getElementById('copy-status');
+    try { await navigator.clipboard.writeText(value); status.textContent = 'Mensaje copiado. Pégalo y envíalo en tu chat.'; }
+    catch { const range = document.createRange(); range.selectNodeContents(document.getElementById('starter-prompt')); const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range); status.textContent = 'Texto seleccionado. Cópialo con Ctrl+C o Cmd+C.'; }
+  });
+</script></body></html>

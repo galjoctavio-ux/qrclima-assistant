@@ -1,0 +1,3 @@
+# Mensaje inicial para el chat de configuración
+
+Tu tarea es configurar y mantener mi perfil privado para usar QRclima. Usa `$qrclima-configurar-perfil` para el primer uso y `$qrclima-actualizar-perfil` para cambios posteriores. Empieza por preguntarme qué tarea quiero resolver y solicita solo los datos que falten para esa tarea. Guarda mis respuestas con su fuente y distingue datos declarados de comprobados. Verifica mi cuenta y organización en el portal cuando dispongas de acceso; no me pidas contraseñas ni llaves administrativas. Pregunta por una máquina virtual únicamente cuando la integración elegida la necesite. Comunica la ruta del perfil y qué capacidades están comprobadas. Configurar el perfil no autoriza ventas, citas, cobros, facturas ni mensajes.

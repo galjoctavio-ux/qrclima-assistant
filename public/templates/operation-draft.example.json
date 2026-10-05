@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.1.0",
+  "attempt_id": "ejemplo-ficticio-venta-001",
+  "kind": "sale_create_ui",
+  "organization_id": null,
+  "actor_uid": null,
+  "state": "needs_information",
+  "explicit_input": {"client_name": "Cliente de prueba", "items": [{"description": "Mantenimiento", "quantity": 2, "unit_price": 600}], "total": 1200, "amount_paid": null},
+  "missing_fields": ["organizacion_verificada", "cliente_identificado", "fecha_venta", "importe_cobrado"],
+  "authorization_ref": null,
+  "result": null,
+  "updated_at": "2026-10-05T12:00:00Z"
+}

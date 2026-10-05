@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Perfil privado de agentes QRclima",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "profile_id", "revision", "created_at", "updated_at", "person", "paths", "qrclima", "connections", "operation_policy", "policy_history", "authorizations", "learning_proposals"],
+  "properties": {
+    "preferences": {"type": "array", "maxItems": 200, "items": {"type": "object", "additionalProperties": false, "required": ["key", "organization_id", "setting"], "properties": {"key": {"type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$"}, "organization_id": {"type": ["string", "null"], "minLength": 1}, "setting": {"$ref": "#/$defs/fact"}}}},
+    "improvement_proposals": {"type": "array", "maxItems": 1000, "items": {"type": "object", "additionalProperties": false, "required": ["id", "classification", "summary", "status", "evidence_ref", "public_summary"], "properties": {"id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,79}$"}, "classification": {"enum": ["global", "personal", "mixed", "needs_evidence"]}, "summary": {"type": "string", "minLength": 1, "maxLength": 1200}, "status": {"enum": ["proposed", "implemented", "validated", "promoted", "discarded"]}, "evidence_ref": {"type": "string", "minLength": 1, "maxLength": 500}, "public_summary": {"type": ["string", "null"], "minLength": 1, "maxLength": 1200}}}},
+    "schema_version": {"const": "0.1.0"},
+    "profile_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]{0,47}$"},
+    "revision": {"type": "integer", "minimum": 0},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "person": {
+      "type": "object", "additionalProperties": false,
+      "required": ["display_name", "language", "time_zone"],
+      "properties": {"display_name": {"$ref": "#/$defs/fact"}, "language": {"$ref": "#/$defs/fact"}, "time_zone": {"$ref": "#/$defs/fact"}}
+    },
+    "paths": {
+      "type": "object", "additionalProperties": false,
+      "required": ["documents_directory", "receipts_directory"],
+      "properties": {"documents_directory": {"$ref": "#/$defs/fact"}, "receipts_directory": {"$ref": "#/$defs/fact"}}
+    },
+    "qrclima": {
+      "type": "object", "additionalProperties": false,
+      "required": ["portal_url", "account_uid", "active_organization_id", "organizations"],
+      "properties": {
+        "portal_url": {"const": "https://app.tesivil.com/qrclima"},
+        "account_uid": {"$ref": "#/$defs/fact"},
+        "account_reference": {"$ref": "#/$defs/fact"},
+        "active_organization_id": {"type": ["string", "null"], "minLength": 1},
+        "organizations": {"type": "array", "items": {"$ref": "#/$defs/organization"}}
+      }
+    },
+    "connections": {
+      "type": "object", "additionalProperties": false,
+      "required": ["operating_system", "browser", "vm", "whatsapp", "sdk"],
+      "properties": {
+        "operating_system": {"$ref": "#/$defs/fact"},
+        "browser": {
+          "type": "object", "additionalProperties": false,
+          "required": ["provider", "state", "checked_at"],
+          "properties": {"provider": {"$ref": "#/$defs/fact"}, "state": {"enum": ["unknown", "available", "unavailable"]}, "checked_at": {"type": ["string", "null"], "format": "date-time"}}
+        },
+        "vm": {
+          "type": "object", "additionalProperties": false,
+          "required": ["used", "host", "provider", "purpose", "credential_reference"],
+          "properties": {"used": {"$ref": "#/$defs/fact"}, "host": {"$ref": "#/$defs/fact"}, "provider": {"$ref": "#/$defs/fact"}, "purpose": {"$ref": "#/$defs/fact"}, "credential_reference": {"$ref": "#/$defs/fact"}}
+        },
+        "whatsapp": {"type": "object", "additionalProperties": false, "required": ["mode"], "properties": {"mode": {"const": "disabled"}}},
+        "sdk": {"type": "object", "additionalProperties": false, "required": ["mode"], "properties": {"mode": {"const": "disabled"}}}
+      }
+    },
+    "operation_policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sales", "agenda", "finance", "external_messages", "sdk_writes"],
+      "properties": {"sales": {"enum": ["draft_only", "confirm_each"]}, "agenda": {"enum": ["draft_only", "confirm_each"]}, "finance": {"const": "read_only"}, "external_messages": {"const": "disabled"}, "sdk_writes": {"const": "disabled"}}
+    },
+    "policy_history": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["capability", "mode", "evidence_ref", "changed_at"], "properties": {"capability": {"enum": ["sales", "agenda"]}, "mode": {"enum": ["draft_only", "confirm_each"]}, "evidence_ref": {"type": "string", "minLength": 1}, "changed_at": {"type": "string", "format": "date-time"}}}},
+    "authorizations": {"type": "array", "items": {"$ref": "#/$defs/authorization"}},
+    "learning_proposals": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["id", "category", "organization_id", "statement", "status", "source_ref"], "properties": {"id": {"type": "string", "minLength": 1}, "category": {"enum": ["preference", "business_rule", "adapter_observation"]}, "organization_id": {"type": ["string", "null"]}, "statement": {"type": "string", "minLength": 1, "maxLength": 1200}, "status": {"enum": ["proposed", "accepted", "rejected"]}, "source_ref": {"type": "string", "minLength": 1}}}}
+  },
+  "$defs": {
+    "fact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["value", "status", "source", "observed_at", "verified_at"],
+      "properties": {
+        "value": {"type": ["string", "boolean", "number", "null"], "maxLength": 2000},
+        "status": {"enum": ["unknown", "declared", "verified", "stale"]},
+        "source": {"type": ["object", "null"], "additionalProperties": false, "required": ["type", "reference"], "properties": {"type": {"enum": ["user", "local_check", "qrclima_ui", "authorized_connector"]}, "reference": {"type": "string", "minLength": 1, "maxLength": 500}}},
+        "observed_at": {"type": ["string", "null"], "format": "date-time"},
+        "verified_at": {"type": ["string", "null"], "format": "date-time"}
+      }
+    },
+    "organization": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "name", "plan", "membership_role", "membership_active"],
+      "properties": {"id": {"$ref": "#/$defs/fact"}, "name": {"$ref": "#/$defs/fact"}, "plan": {"$ref": "#/$defs/fact"}, "membership_role": {"$ref": "#/$defs/fact"}, "membership_active": {"$ref": "#/$defs/fact"}}
+    },
+    "authorization": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "organization_id", "actor_uid", "action", "scope", "evidence_ref", "created_at", "expires_at", "revoked"],
+      "properties": {"id": {"type": "string", "minLength": 1}, "organization_id": {"type": "string", "minLength": 1}, "actor_uid": {"type": "string", "minLength": 1}, "action": {"enum": ["sale_create_ui", "appointment_create_ui", "finance_read"]}, "scope": {"enum": ["single_case", "routine"]}, "evidence_ref": {"type": "string", "minLength": 1}, "created_at": {"type": "string", "format": "date-time"}, "expires_at": {"type": ["string", "null"], "format": "date-time"}, "revoked": {"type": "boolean"}}
+    }
+  }
+}

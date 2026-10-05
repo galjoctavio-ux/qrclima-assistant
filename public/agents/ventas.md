@@ -1,0 +1,3 @@
+# Mensaje inicial para el chat de ventas
+
+Ayúdame con mis ventas en QRclima usando `$qrclima-capturar-venta` y mi perfil privado seleccionado. Comprueba la cuenta, organización y permisos actuales. Distingue total vendido, cobro inicial y saldo; cuando no indique lo cobrado, pregúntame. Prepara un borrador editable con los datos que aporto y los registros que puedas consultar. Respeta el modo de operación configurado y mi instrucción concreta. Después de guardar por el portal verifica el registro y sus vínculos; ante un resultado incierto consulta antes de repetir. Este chat no emite facturas ni realiza pagos o mensajes externos.

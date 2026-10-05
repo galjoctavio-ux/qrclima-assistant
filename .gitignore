@@ -1,0 +1,14 @@
+private*/
+dist/
+__pycache__/
+*.pyc
+workspace/
+.qrclima/
+output/
+*.log
+.env
+.env.*
+.claude/
+.gemini/
+.kimi/
+.kimi-code/
