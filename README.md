@@ -1,22 +1,24 @@
 # Asistente de QRclima
 
-Un asistente configurable para consultar QRclima, preparar ventas, organizar citas y revisar finanzas mediante conversación natural. **Piloto público 0.3.0; todavía no es la versión 1 estable.**
+Un asistente configurable para consultar QRclima, preparar ventas, organizar citas y revisar finanzas mediante conversación natural. **Piloto público 0.4.0; todavía no es la versión 1 estable.** Incluye cliente de conexión por usuario, servidor con permisos por organización y pantalla de autorización. Su activación en QRclima requiere publicar y verificar esa integración.
 
-Descarga [la versión empaquetada](https://github.com/galjoctavio-ux/qrclima-assistant/releases/tag/v0.3.0), descomprime `qrclima-asistente-0.3.0.zip` y abre `EMPIEZA-AQUI.html`. El ZIP del asistente está preparado para uso; el botón **Code → Download ZIP** de GitHub descarga las fuentes de desarrollo.
+Descarga [la versión empaquetada](https://github.com/galjoctavio-ux/qrclima-assistant/releases/tag/v0.4.0), descomprime `qrclima-asistente-0.4.0.zip` y abre `EMPIEZA-AQUI.html`. El ZIP del asistente está preparado para uso; el botón **Code → Download ZIP** de GitHub descarga las fuentes de desarrollo.
 
 ## Una carpeta, una conversación
 
-Abre la carpeta descargada en un agente con archivos locales, Python 3.10 o posterior y navegador conectado. Envía:
+Abre la carpeta descargada en un agente con archivos locales y Python 3.10 o posterior. Envía:
 
-> Configura mi asistente de QRclima en esta carpeta. Lee AGENTS.md, ayúdame a conectar mi sesión y conoce la información accesible de mi organización: empresa, clientes, conceptos, citas, cotizaciones y documentos. Guarda el contexto local con sus fuentes y pregúntame solo lo que falte. La configuración inicial es de lectura; después te pediré las operaciones que necesite.
+> Inicia.
 
-El usuario inicia sesión en el portal con su propia cuenta. El asistente reutiliza datos comprobados, pregunta por faltantes y conserva alcance y fecha. Los registros reales respetan permisos, plan y validaciones de QRclima. El kit no utiliza Firebase Admin ni evita bloqueos del portal.
+El agente abre la autorización en QRclima y el usuario inicia sesión, comprueba el código y elige organización y permisos. Al volver escribe «continúa». El asistente reutiliza datos comprobados y pregunta por los faltantes. Si la integración todavía no está habilitada, informa ese estado y continúa por el portal con un navegador conectado. La carpeta del usuario no utiliza Firebase Admin ni requiere VM o llaves administrativas.
 
 ## Agentes y capacidades
 
-Incluye entradas para Codex, Claude Code, Gemini CLI y Kimi Code CLI, y lectura explícita para hosts con DeepSeek u otros modelos. Todos comparten ocho procedimientos: asistente, configuración, perfil, contexto, ventas, agenda, finanzas y mejoras. Consulta la [compatibilidad y sus límites](starter/COMPATIBILIDAD.md).
+Incluye entradas para Codex, Claude Code, Gemini CLI y Kimi Code CLI, y lectura explícita para hosts con DeepSeek u otros modelos. Todos comparten nueve procedimientos, incluido el conector propio. Consulta la [compatibilidad y sus límites](starter/COMPATIBILIDAD.md).
 
-El kit no proporciona suscripciones de inteligencia artificial, llaves API, navegador ni acceso móvil por sí mismo. Un modelo que lee Markdown no necesariamente puede ejecutar tareas. La compatibilidad de archivos se ha comprobado; las operaciones en cada cliente requieren pruebas reales. SDK, WhatsApp, CFDI, inventario y pagos bancarios quedan fuera del alcance inicial.
+El kit no proporciona suscripciones de inteligencia artificial, llaves API, navegador ni acceso móvil por sí mismo. Un modelo que lee Markdown no necesariamente puede ejecutar tareas. La compatibilidad de archivos se ha comprobado; las operaciones en cada cliente requieren pruebas reales. El conector permite consultas y cambios específicos de perfil, marca y documentos. Ventas y citas mantienen sus flujos del portal; WhatsApp, CFDI, inventario y pagos bancarios necesitan integración adicional.
+
+Consulta [el conector y sus límites](public/references/connector.md), [el servidor para el operador](server/README.md) y [la integración del portal](integration/README.md). Los documentos privados se almacenan en Storage; Firestore guarda su metadata. No hay una herramienta para escribir colecciones o rutas arbitrarias.
 
 ## Personalización y mejoras
 
@@ -34,6 +36,8 @@ starter/         instrucciones y guía de la carpeta descargable
 tools/           construcción y comprobación de publicación
 tests/           comprobaciones locales con datos ficticios
 docs/            decisiones y criterios de versión 1
+server/          API propia de QRclima y pruebas de aislamiento
+integration/     pantalla y configuración del portal QRclima
 workspace/       carpetas generadas, excluidas de Git
 .qrclima/        datos privados, excluidos de Git
 ```
@@ -43,11 +47,11 @@ Desde la raíz, con Python 3.10 o posterior:
 ```sh
 python -m unittest discover -s tests -q
 python tools/check_public.py
-python tools/build_package.py --format workspace --workspace-dir ./workspace/Mi-asistente-QRclima-0.3 --output ./dist/qrclima-asistente-0.3.0.zip
+python tools/build_package.py --format workspace --workspace-dir ./workspace/Mi-asistente-QRclima-0.4 --output ./dist/qrclima-asistente-0.4.0.zip
 ```
 
 El constructor rechaza destinos existentes; elige una ruta nueva para otro ensayo. El ZIP se genera únicamente con las fuentes públicas y la plantilla. Para revisar el contenido que entrará a Git, utiliza `python tools/check_public.py --tracked` después de preparar el índice. El escáner reconoce rutas no permitidas y formatos conocidos de secretos; no sustituye revisar textos y capturas.
 
-El formato de plugin es opcional: `python tools/build_package.py --format plugin --output ./dist/qrclima-plugin-0.3.0.zip`. Construirlo no instala ni registra un plugin en un directorio público.
+El formato de plugin es opcional: `python tools/build_package.py --format plugin --output ./dist/qrclima-plugin-0.4.0.zip`. Construirlo no instala ni registra un plugin en un directorio público. El ZIP del usuario excluye servidor, herramientas del mantenedor y archivos privados.
 
 Consulta [arquitectura](ARCHITECTURE.md), [casos de aceptación](acceptance.md), [verificación](verification.md), [guía de primer uso](starter/README.md) y [licencia MIT](LICENSE).

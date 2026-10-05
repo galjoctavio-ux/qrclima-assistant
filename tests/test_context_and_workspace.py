@@ -156,7 +156,7 @@ class ContextAndWorkspaceTests(unittest.TestCase):
         builder.write_workspace(project)
         self.assertTrue((project / "AGENTS.md").is_file())
         self.assertTrue((project / "EMPIEZA-AQUI.html").is_file())
-        self.assertEqual(len(list((project / ".agents/skills").glob("*/SKILL.md"))), 8)
+        self.assertEqual(len(list((project / ".agents/skills").glob("*/SKILL.md"))), 9)
         environment = os.environ.copy()
         environment.pop("QRCLIMA_AGENT_HOME", None)
         environment.pop("PLUGIN_DATA", None)
@@ -179,8 +179,8 @@ class ContextAndWorkspaceTests(unittest.TestCase):
             self.assertIsNone(archive.testzip())
             self.assertIn("Mi-asistente-QRclima/AGENTS.md", names)
             self.assertFalse(any("/.qrclima/" in name or "profile.json" in name or "/context/" in name for name in names))
-            self.assertEqual(len([name for name in names if "/.agents/skills/" in name and name.endswith("/SKILL.md")]), 8)
-            self.assertEqual(len([name for name in names if "/.claude/skills/" in name and name.endswith("/SKILL.md")]), 8)
+            self.assertEqual(len([name for name in names if "/.agents/skills/" in name and name.endswith("/SKILL.md")]), 9)
+            self.assertEqual(len([name for name in names if "/.claude/skills/" in name and name.endswith("/SKILL.md")]), 9)
 
 
 if __name__ == "__main__":

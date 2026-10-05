@@ -1,6 +1,6 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "qrclima-agent-kit",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Asistente de QRclima en una conversación, con configuración personal, contexto por organización, ventas, agenda y revisión financiera."
 }

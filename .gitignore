@@ -12,3 +12,4 @@ output/
 .gemini/
 .kimi/
 .kimi-code/
+server/node_modules/

@@ -9,7 +9,11 @@ Empieza con **una carpeta y un chat**. La configuración, las consultas, ventas 
 3. Abre esta carpeta como proyecto en tu agente. Para Codex, agrégala como proyecto local y abre un chat asociado. Para Claude Code, Gemini CLI, Kimi o un host con DeepSeek, consulta [COMPATIBILIDAD.md](COMPATIBILIDAD.md).
 4. Envía el mensaje siguiente. El asistente comprueba las herramientas, prepara el perfil y te ayuda a abrir tu sesión de QRclima.
 
-> Configura mi asistente de QRclima en esta carpeta. Lee AGENTS.md, ayúdame a conectar mi sesión y conoce la información accesible de mi organización: empresa, clientes, conceptos, citas, cotizaciones y documentos. Guarda el contexto local con sus fuentes y pregúntame solo lo que falte. La configuración inicial es de lectura; después te pediré las operaciones que necesite.
+> Inicia.
+
+El agente comprobará Python y abrirá la autorización de QRclima. Inicia sesión, compara el código, elige tu organización y habilita los permisos que necesites. Vuelve al chat y escribe «continúa». La herramienta permite consultar tus datos y, con los permisos elegidos y una petición concreta, actualizar perfil, foto, logo o guardar una constancia privada. Consulta `.agents/references/connector.md`.
+
+Si QRclima todavía no ha habilitado esta integración, el agente te lo dirá y utilizará el portal disponible. La carpeta no puede activar el servidor del proveedor. Una VM se pregunta únicamente para servicios externos que realmente la necesiten.
 
 ## Conectar el navegador
 
@@ -53,6 +57,6 @@ Hay espacios vacíos para estilo de respuesta, navegador, nombres de documentos,
 
 ## Comprobación del primer uso
 
-El asistente debe informarte de la ruta del perfil, cuenta/organización comprobadas, qué pudo consultar y qué falta. La versión 0.3.0 es un piloto: scripts, adaptadores y empaquetado se prueban localmente; herramientas y operaciones reales se verifican en tu instalación. El kit no incluye suscripciones ni créditos del proveedor. Su uso y modificación se permiten bajo licencia MIT, incluida en la descarga.
+El asistente debe informarte de la ruta del perfil, cuenta/organización comprobadas, qué pudo consultar y qué falta. La versión 0.4.0 es un piloto: scripts, adaptadores y empaquetado se prueban localmente; herramientas y operaciones reales se verifican en tu instalación. El kit no incluye suscripciones ni créditos del proveedor. Su uso y modificación se permiten bajo licencia MIT, incluida en la descarga.
 
 Documentación oficial: [skills locales](https://learn.chatgpt.com/docs/build-skills), [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) y [conexión del navegador](https://learn.chatgpt.com/docs/chrome-extension).

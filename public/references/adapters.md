@@ -8,10 +8,10 @@ Este documento define interfaces de trabajo. No declara herramientas instaladas 
 | Archivos locales | Administrador de perfiles implementado | Directorio privado seleccionado; no leer otras cuentas |
 | Índice de contexto | Snapshots y búsqueda local implementados | Cuenta/organización concordantes, fuente y cobertura; el agente aporta lecturas reales |
 | Control remoto móvil | Capacidad del runtime | Conexión y host realmente disponibles; no se deduce por tener teléfono |
-| Lectura SDK | Contrato futuro | Herramienta autenticada por usuario y filtrada por organización; no incluir claves administrativas |
+| Lectura propia | Conector Python/HTTPS implementado; activación del portal pendiente | Autorización por usuario y concesión revocable ligada a organización; sin claves administrativas en el cliente |
 | Máquina virtual | Configuración opcional | Finalidad explícita y conexión individual autorizada; sin ejecutar una ruta como comando |
 | WhatsApp | Fuera del piloto inicial | Adaptador, identidad, destinatarios y autorización de cada alcance probados aparte |
-| Escritura SDK | Fuera del piloto inicial | Servicio de negocio que aplique permisos, reglas, transacciones y control de reintentos |
+| Escritura propia | Perfil, marca y constancia privada | Permisos específicos, revisiones e intentos idempotentes; los flujos comerciales conservan los servicios del portal |
 
 ## Navegador
 
@@ -19,7 +19,7 @@ El agente carga documentación del controlador disponible, identifica la pestañ
 
 Antes de una mutación se comprueba la cuenta, organización, rol/plan requerido y autorización del caso. Si una operación no existe o cambió la interfaz, se reporta la limitación. El paquete de usuario no modifica ni despliega QRclima.
 
-## Contrato futuro para herramientas autenticadas
+## Contrato para ampliar herramientas autenticadas
 
 Una herramienta de consulta debe devolver `actor_uid`, `organization_id`, `observed_at`, resultados limitados y referencias de evidencia. El servidor deriva el actor de la sesión y verifica la membresía; no confía en un UID elegido por el modelo.
 

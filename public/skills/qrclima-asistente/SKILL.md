@@ -7,6 +7,8 @@ description: Atiende en una conversación solicitudes naturales de QRclima. Úsa
 
 Lee el [contrato de ejecución](../../references/runtime.md). Identifica la carpeta, el perfil y la organización activos. El usuario puede empezar y continuar en un solo chat; las conversaciones especializadas son opcionales.
 
+Al recibir «inicia», aplica `qrclima-conectar-herramienta` para habilitar la conexión propia y guiar la autorización. Después continúa con la entrevista progresiva. Actualizar perfil, foto, logo o guardar una constancia también utiliza ese procedimiento.
+
 Si no hay perfil, aplica `qrclima-configurar-perfil`. Si el usuario pide conocer o actualizar su información de QRclima, aplica `qrclima-sincronizar-contexto`. La entrevista se combina con la primera tarea, evitando repetir respuestas guardadas.
 
 Selecciona la skill por la petición actual:

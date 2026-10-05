@@ -14,8 +14,8 @@ spec = importlib.util.spec_from_file_location("qrclima_release_profile", KIT_ROO
 store = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(store)
 ROOT_FILES = {"README.md", "AGENTS.md", "CLAUDE.md", "GEMINI.md", "ARCHITECTURE.md", "CONTRIBUTING.md", "CHANGELOG.md", "LICENSE", "acceptance.md", "verification.md", ".gitignore", ".gitattributes"}
-SOURCE_TYPES = {"public": {".md", ".json", ".py"}, "starter": {".md", ".html"}, "tools": {".py"}, "tests": {".py"}, "docs": {".md"}}
-PRIVATE_PARTS = {".qrclima", "profiles", "receipts", "context", "workspace", "dist", "output", "__pycache__", "profile.json", "journal.jsonl"}
+SOURCE_TYPES = {"public": {".md", ".json", ".py"}, "starter": {".md", ".html"}, "tools": {".py"}, "tests": {".py"}, "docs": {".md"}, "server": {".md", ".json", ".js", ".cjs"}, "integration": {".md", ".ts", ".tsx"}}
+PRIVATE_PARTS = {".qrclima", "profiles", "receipts", "context", "workspace", "dist", "output", "__pycache__", "profile.json", "journal.jsonl", "node_modules", ".firebase", "connection.json", "connection.dpapi"}
 TOKEN_PATTERN = re.compile(r"\bgh[pousr]_[A-Za-z0-9]{20,}|\bgithub_pat_[A-Za-z0-9_]{20,}")
 MACHINE_PATH = re.compile(r"\b[A-Za-z]:[\\/](?:Users|TESIVIL|Desarrollo)[\\/]", re.I)
 
@@ -30,7 +30,7 @@ def allowed_path(name):
         return False
     if any(part.casefold() in PRIVATE_PARTS or part.casefold().startswith(("private", ".env")) for part in path.parts):
         return False
-    if name in ROOT_FILES or name in {"starter/.gitignore", ".github/workflows/check.yml"}:
+    if name in ROOT_FILES or name in {"starter/.gitignore", "server/.gitignore", "server/test/firestore.rules", "server/test/storage.rules", ".github/workflows/check.yml"}:
         return True
     return len(path.parts) > 1 and path.parts[0] in SOURCE_TYPES and path.suffix in SOURCE_TYPES[path.parts[0]]
 
@@ -58,7 +58,9 @@ def source_entries(root=KIT_ROOT):
         if builder.is_link(source):
             raise ReleaseError("Una raiz publica es un enlace.")
         for path in sorted(source.rglob("*")):
-            if "__pycache__" in path.relative_to(root).parts:
+            if "__pycache__" in path.relative_to(root).parts or directory == "server" and "node_modules" in path.relative_to(source).parts:
+                continue
+            if directory == "server" and path.name in {"firebase-debug.log", "firestore-debug.log", "storage-debug.log", "ui-debug.log"}:
                 continue
             if builder.is_link(path):
                 raise ReleaseError("Hay un enlace dentro de las fuentes publicas.")

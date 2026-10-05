@@ -4,7 +4,7 @@
 
 La primera versión usa el portal con una sesión propia en `@Chrome`, otro navegador compatible o `@Browser`. El usuario inicia sesión y acepta los permisos del cliente. El asistente no instala Firebase CLI, SDK administrativo ni importa una cuenta de servicio para esa vía.
 
-Un SDK de lectura futuro necesitaría autenticación individual y consultas limitadas por organización. Se mantiene fuera de esta entrega; tener la configuración pública de Firebase no autentica una cuenta ni conserva todas las restricciones de la interfaz.
+El [conector propio](connector.md) permite una carga HTTPS autenticada y limitada por organización cuando QRclima lo habilita. `status` guarda la identidad comprobada y `sync` conserva páginas privadas y devuelve un resumen. Los módulos que todavía no soporte se consultan por el portal. Tener la configuración pública de Firebase no autentica una cuenta ni conserva las restricciones de la interfaz.
 
 ## Recorrido inicial
 

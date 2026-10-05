@@ -10,9 +10,11 @@ El objetivo es una carpeta que un usuario pueda configurar con su cuenta, conver
 - Revisión financiera de lectura que distinga venta, cobro, deuda, gasto y coste.
 - Preferencias opcionales vacías y proceso para promover mejoras comunes.
 
+- Conexión propia revocable, perfil/marca y documentos privados; aislamiento de organizaciones probado en servidor.
+
 ## Puertas de salida
 
-| Evidencia necesaria | Estado en 0.3.0 |
+| Evidencia necesaria | Estado en 0.4.0 |
 |---|---|
 | Controles locales, empaquetado limpio y revisión del índice/historial | Implementados; resultados en verification.md |
 | Primer uso en carpeta nueva y cuenta distinta, sin datos del piloto | Pendiente de prueba real |
@@ -33,4 +35,4 @@ Congela alcance, ejecuta controles y casos reales, revisa fuentes públicas, con
 
 El proceso excluye datos privados desde el origen. No limpia perfiles del mantenedor ni borra carpetas de uso. Si un dato privado entra en Git, se trata como una exposición: quitarlo del archivo actual no elimina su historial. Revisa y remedia antes de distribuir.
 
-WhatsApp, facturación, inventario, SDK, VM y automatizaciones avanzadas quedan para versiones posteriores. No prometas ahorro de tokens, operación móvil o fiabilidad universal sin medirlos en el host concreto.
+WhatsApp, facturación, inventario, escrituras comerciales por conector, VM y automatizaciones avanzadas quedan para versiones posteriores. No prometas ahorro de tokens, operación móvil o fiabilidad universal sin medirlos en el host concreto.

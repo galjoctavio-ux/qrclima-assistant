@@ -15,3 +15,22 @@ jobs:
       - run: python -m unittest discover -s tests -q
       - run: python tools/check_public.py --tracked --history
       - run: python tools/build_package.py --format workspace --output ./dist/qrclima-asistente-ci.zip
+  connector:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+        working-directory: server
+      - run: npm test
+        working-directory: server
+      - run: npx --yes firebase-tools@15.0.0 --config test/emulator-config.json emulators:exec --only firestore,auth,storage --project demo-qrclima-assistant "node test/emulator.cjs"
+        working-directory: server

@@ -1,4 +1,18 @@
-# Verificación del piloto 0.3.0
+# Verificación del piloto 0.4.0
+
+Revisión del 5 de octubre de 2026. El conector está implementado y probado localmente; su activación y recorrido con cuentas reales del portal permanecen pendientes.
+
+## Conector 0.4.0
+
+- Python: 51 casos, 50 correctos y 1 omitido en Windows por permiso de enlaces simbólicos. Incluye cifrado DPAPI real con una credencial ficticia, enlace de autorización sin secreto, preservación del perfil e impedimento de mezclar cuentas.
+- Servidor: 16 tests correctos de política y HTTP: identidad verificada por Firebase, revocación comprobada, CORS limitado, flag deshabilitado, whitelist de campos, permisos y límites de archivos.
+- Firestore/Auth/Storage reales en emuladores: 19 escenarios correctos con proyecto demo y reglas que niegan acceso directo. Incluyen organizaciones A/B, escrituras y relectura, documento privado, reintento, campos protegidos, cuenta desactivada, retirada de membresía, cambio de organización, bloqueo de eliminación, contactos cruzados, revocación durante subida y presupuesto por organización.
+- Integración del portal: TypeScript y build de Next.js correctos en checkout aislado del portal. El build conserva avisos de hooks y Browserslist presentes en otros archivos; no se presenta como una limpieza de esos módulos.
+- Paquete: nueve procedimientos comunes y nueve entradas de Claude; el cliente no incluye SDK administrativo, servidor ni datos personales. El control de fuentes, índice e historial y el ZIP se revisan antes de publicar.
+
+No se han certificado login, consentimiento, documento y revocación con cuentas reales en producción ni compatibilidad operativa en todos los hosts. Una caída entre Storage y Firestore puede requerir conciliación de un intento reservado; no se presenta como recuperación automática completa ni versión 1.
+
+## Evidencia anterior, versión 0.3.0
 
 Revisión local del 5 de octubre de 2026, con datos ficticios y directorios aislados.
 

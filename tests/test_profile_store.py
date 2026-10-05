@@ -208,7 +208,7 @@ class LocalProfileTests(unittest.TestCase):
         with zipfile.ZipFile(output) as archive:
             names = archive.namelist()
             self.assertIn("plugin.json", names)
-            self.assertEqual(len([name for name in names if name.endswith("/SKILL.md")]), 8)
+            self.assertEqual(len([name for name in names if name.endswith("/SKILL.md")]), 9)
             self.assertIn("LICENSE", names)
             self.assertNotIn("profile.json", names)
             self.assertFalse(any("private" in name or "__pycache__" in name for name in names))

@@ -1,5 +1,14 @@
 # Cambios
 
+## 0.4.0 — conector propio en piloto
+
+- «Inicia» prepara una conexión autorizada en navegador, ligada a una organización y permisos concretos.
+- Cliente Python sin SDK administrativo, con credencial privada protegida y carga de contexto resumida.
+- Servidor independiente con validación actual de cuenta, membresía, plan, revocación y caducidad.
+- Lecturas acotadas y cambios de perfil/marca; foto y logo en Storage; constancias privadas con metadata en Firestore.
+- Pantalla de autorización y revocación para integrar en QRclima, deshabilitada hasta activar el entorno.
+- Tests de servidor, cliente, aislamiento y subidas con emuladores y datos ficticios. Ventas y citas conservan los flujos existentes.
+
 ## 0.3.0 — piloto público
 
 - Entradas para Codex, Claude Code, Gemini CLI, Kimi Code CLI y lectura explícita para otros hosts, incluido DeepSeek.

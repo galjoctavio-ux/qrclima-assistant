@@ -16,6 +16,8 @@ Ventas y agenda inician en `draft_only`; finanzas es `read_only`. Si el usuario 
 
 Una instrucción concreta y completa del usuario cuenta como autorización para su alcance. No repitas confirmaciones que ya estén resueltas en la sesión. Si el usuario pide revisar un borrador, no lo interpretes como orden de guardarlo. Si faltan datos que cambian el resultado, pregunta por esos datos antes de la acción dependiente.
 
+El [conector propio](connector.md) tiene permisos concedidos en QRclima para consultas y cambios específicos de perfil, marca y documentos. No cambia `sdk_writes: disabled`, que sigue bloqueando SDK administrativo y escrituras genéricas. Un permiso de conexión no equivale a una orden para modificar un dato: exige la petición concreta, revisiona y relee su resultado.
+
 ## Datos y secretos
 
 `declared` significa informado por el usuario; `verified` requiere evidencia consultada. `unknown` usa valor nulo. Guarda fuente, fecha y alcance por organización. No marques como comprobadas inferencias o lecturas que no se pudieron completar.

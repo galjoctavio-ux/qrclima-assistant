@@ -138,10 +138,25 @@ Las instrucciones de adaptadores están en `public/references/adapters.md`. Aqu�
 | Piloto | Cinco usuarios completan tareas con poca ayuda; se mide instalación, tiempo, correcciones y repetición |
 | Nuevos adaptadores | Cada conexión aporta autenticación, límites de herramientas y pruebas propias |
 
-La prioridad es probar carpeta → chat → sesión → contexto y después una venta. La vía inicial es el portal; un conector SDK autenticado, WhatsApp y facturación son capacidades posteriores con sus propias pruebas.
+La prioridad es probar carpeta → chat → sesión → contexto y después una venta. El conector propio añade lectura y cambios específicos de perfil, marca y documentos; las operaciones comerciales conservan el portal. WhatsApp y facturación necesitan integración adicional.
 
 ## Referencias de formato
 
 - [Skills de OpenAI](https://developers.openai.com/plugins/concepts/skills): separación entre procedimientos y herramientas.
 - [Creación de skills](https://developers.openai.com/plugins/build/skills): instrucciones y recursos de cada tarea.
 - [Paquetes de plugins](https://developers.openai.com/plugins/build/plugins): manifiesto público y componentes del paquete.
+
+
+## Conexión propia por organización
+
+```mermaid
+flowchart LR
+  A[Carpeta y agente] -->|Python HTTPS| B[API de QRclima]
+  C[Usuario inicia sesión en el portal] -->|Autoriza organización y permisos| B
+  B -->|Verifica identidad y concesión| D[Datos de la organización]
+  B -->|Destino específico| E[Storage y metadata]
+```
+
+El secreto local nunca aparece en el enlace del navegador. La autorización guarda su huella, UID, organización, permisos y caducidad. El servidor deriva el alcance desde esa concesión y los documentos actuales de QRclima; los archivos y skills no pueden ampliarlo. Las escrituras se ofrecen como operaciones permitidas con revisión e intento idempotente, sin acceso genérico a Firestore.
+
+El cliente del usuario solo necesita Python y navegador para autorizar. El servidor central lo opera QRclima. [Servidor](server/README.md), [integración del portal](integration/README.md) y [contrato del conector](public/references/connector.md) describen la activación, límites y recuperación pendiente.

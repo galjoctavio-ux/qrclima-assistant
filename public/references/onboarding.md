@@ -10,6 +10,8 @@ Después solicita un alias para el perfil, idioma y zona horaria únicamente si 
 
 ## 2. Conectar la cuenta propia
 
+En el proyecto descargable, «inicia» aplica primero `qrclima-conectar-herramienta`. El agente abre la autorización del portal, el usuario elige la organización y vuelve al chat. `status` incorpora la identidad comprobada; `sync` carga contexto privado por etapas. Consulta [el conector](connector.md). Si el servicio está deshabilitado, continúa por la sesión del navegador disponible sin solicitar acceso administrativo.
+
 Pregunta: «¿Ya puedes entrar al portal de QRclima y qué organización quieres utilizar?».
 
 El usuario inicia sesión en el navegador. Comprueba la organización seleccionada y los datos de cuenta, rol y plan que realmente pueda mostrar el portal o una herramienta autorizada. No pidas al usuario un UID, el nombre de una colección de Firestore ni una llave de servicio para resolver el acceso. Si no puedes comprobar una identidad técnica requerida por el contrato de operación, registra ese faltante y conserva el borrador; no inventes el identificador.
