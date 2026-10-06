@@ -1,8 +1,8 @@
 # Asistente de QRclima
 
-Un asistente configurable para consultar QRclima, preparar ventas, organizar citas y revisar finanzas mediante conversación natural. **Piloto público 0.4.0; todavía no es la versión 1 estable.** Incluye cliente de conexión por usuario, servidor con permisos por organización y pantalla de autorización. Su activación en QRclima requiere publicar y verificar esa integración.
+Un asistente configurable para consultar QRclima, preparar ventas, organizar citas y revisar finanzas mediante conversación natural. **Piloto público 0.4.1; todavía no es la versión 1 estable.** Incluye cliente de conexión por usuario, servidor con permisos por organización y pantalla de autorización. Su activación en QRclima requiere publicar y verificar esa integración.
 
-Descarga [la versión empaquetada](https://github.com/galjoctavio-ux/qrclima-assistant/releases/tag/v0.4.0), descomprime `qrclima-asistente-0.4.0.zip` y abre `EMPIEZA-AQUI.html`. El ZIP del asistente está preparado para uso; el botón **Code → Download ZIP** de GitHub descarga las fuentes de desarrollo.
+Descarga [la versión empaquetada](https://github.com/galjoctavio-ux/qrclima-assistant/releases/tag/v0.4.1), descomprime `qrclima-asistente-0.4.1.zip` y abre `EMPIEZA-AQUI.html`. El ZIP del asistente está preparado para uso; el botón **Code → Download ZIP** de GitHub descarga las fuentes de desarrollo.
 
 ## Una carpeta, una conversación
 
@@ -11,6 +11,8 @@ Abre la carpeta descargada en un agente con archivos locales y Python 3.10 o pos
 > Inicia.
 
 El agente abre la autorización en QRclima y el usuario inicia sesión, comprueba el código y elige organización y permisos. Al volver escribe «continúa». El asistente reutiliza datos comprobados y pregunta por los faltantes. Si la integración todavía no está habilitada, informa ese estado y continúa por el portal con un navegador conectado. La carpeta del usuario no utiliza Firebase Admin ni requiere VM o llaves administrativas.
+
+El inicio distingue sesión del portal, autorización del conector, lectura y escritura comprobadas por operación. Una integración deshabilitada deja configuración parcial. Después de acreditar lectura y escritura, el mismo caso recupera nombre y datos básicos y comprueba categorías autorizadas con hasta un registro por consulta, sin cargar catálogos ni documentos completos. Consulta el [reconocimiento mínimo](public/references/initial-discovery.md) y los [pendientes para 1.0.0](public/PENDIENTES-1.0.0.md). El conector del servidor conserva su alcance actual; 0.4.1 no despliega ni activa QRclima.
 
 ## Agentes y capacidades
 
@@ -47,11 +49,11 @@ Desde la raíz, con Python 3.10 o posterior:
 ```sh
 python -m unittest discover -s tests -q
 python tools/check_public.py
-python tools/build_package.py --format workspace --workspace-dir ./workspace/Mi-asistente-QRclima-0.4 --output ./dist/qrclima-asistente-0.4.0.zip
+python tools/build_package.py --format workspace --workspace-dir ./workspace/Mi-asistente-QRclima-0.4 --output ./dist/qrclima-asistente-0.4.1.zip
 ```
 
 El constructor rechaza destinos existentes; elige una ruta nueva para otro ensayo. El ZIP se genera únicamente con las fuentes públicas y la plantilla. Para revisar el contenido que entrará a Git, utiliza `python tools/check_public.py --tracked` después de preparar el índice. El escáner reconoce rutas no permitidas y formatos conocidos de secretos; no sustituye revisar textos y capturas.
 
-El formato de plugin es opcional: `python tools/build_package.py --format plugin --output ./dist/qrclima-plugin-0.4.0.zip`. Construirlo no instala ni registra un plugin en un directorio público. El ZIP del usuario excluye servidor, herramientas del mantenedor y archivos privados.
+El formato de plugin es opcional: `python tools/build_package.py --format plugin --output ./dist/qrclima-plugin-0.4.1.zip`. Construirlo no instala ni registra un plugin en un directorio público. El ZIP del usuario excluye servidor, herramientas del mantenedor y archivos privados.
 
 Consulta [arquitectura](ARCHITECTURE.md), [casos de aceptación](acceptance.md), [verificación](verification.md), [guía de primer uso](starter/README.md) y [licencia MIT](LICENSE).

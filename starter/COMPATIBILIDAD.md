@@ -21,6 +21,6 @@ El kit no instala estos clientes ni configura proveedores de modelos o WhatsApp.
 
 ## Estado de compatibilidad
 
-En 0.4.0 se validan archivos, scripts, empaquetado y el conector con datos ficticios y emuladores. Los adaptadores se basan en documentación oficial; **no se han certificado operaciones reales en todos estos clientes**. Informa cliente, versión, herramientas y resultado cuando pruebes el kit; no deduzcas compatibilidad operativa de que el modelo pudo leer una skill.
+En 0.4.1 se validan archivos, scripts, empaquetado y el conector con datos ficticios y emuladores. Los adaptadores se basan en documentación oficial; **no se han certificado operaciones reales en todos estos clientes**. Informa cliente, versión, herramientas y resultado cuando pruebes el kit; no deduzcas compatibilidad operativa de que el modelo pudo leer una skill.
 
 Fuentes consultadas el 5 de octubre de 2026: [Codex skills](https://learn.chatgpt.com/docs/build-skills), [Claude instrucciones](https://code.claude.com/docs/en/memory), [Claude skills](https://code.claude.com/docs/en/skills), [Gemini contexto](https://geminicli.com/docs/cli/gemini-md/), [Gemini skills](https://geminicli.com/docs/cli/using-agent-skills/), [Kimi skills](https://moonshotai.github.io/kimi-code/en/customization/skills.html), [DeepSeek herramientas](https://api-docs.deepseek.com/guides/tool_calls/).

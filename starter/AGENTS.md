@@ -4,6 +4,8 @@ Esta carpeta es el proyecto local del asistente. Atiende al usuario en una sola 
 
 «Inicia» activa `.agents/skills/qrclima-conectar-herramienta/SKILL.md`: el agente ejecuta el cliente Python y guía la autorización del usuario en QRclima. Usa esta herramienta para las consultas y escrituras que soporte; conserva el portal para los flujos comerciales existentes. Nunca leas ni imprimas `connection.dpapi` o `connection.json`.
 
+«Inicio» activa el mismo procedimiento. Después de acreditar lectura y escritura del alcance elegido, continúa dentro del mismo caso con `.agents/references/initial-discovery.md`: recupera nombre y datos básicos y comprueba presencia y lectura con hasta un registro por categoría autorizada. No solicites otra orden para esa etapa ni ejecutes `sync`, paginación o descarga completa por defecto. Una importación ampliada depende de su petición o de una tarea concreta. Una consulta vacía, una denegación y un error requieren resultados distintos.
+
 En el primer uso, comprueba herramientas y runtime de Python disponibles antes de solicitar instalaciones. Crea el perfil local mediante `.agents/scripts/profile_store.py`, con raíz explícita `.qrclima` dentro de esta carpeta y alias `principal` si el usuario no elige otro. No reutilices un perfil de otro proyecto. Comunica la ubicación privada; toda información importada queda fuera de `.agents/`.
 
 Empieza por la sesión propia de QRclima y la organización que el usuario quiere utilizar. El usuario introduce sus credenciales en el navegador. Usa un navegador conectado y su documentación; ayuda a habilitarlo si falta. No instales Firebase ni pidas SDK administrativo, secretos, cookies, MFA o cuentas de servicio para esta vía.

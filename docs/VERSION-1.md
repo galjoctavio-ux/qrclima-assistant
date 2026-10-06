@@ -2,6 +2,8 @@
 
 El objetivo es una carpeta que un usuario pueda configurar con su cuenta, conversar naturalmente y completar tareas básicas verificadas, manteniendo preferencias y datos privados separados del kit común. El piloto del mantenedor orienta el diseño; no demuestra que funcione para otra empresa.
 
+Los requisitos detallados y prioridades se mantienen en [PENDIENTES-1.0.0.md](../public/PENDIENTES-1.0.0.md), incluido en la distribución. Las comprobaciones del primer contacto se definen en el [criterio de conexión](../public/references/connection-acceptance.md) y el [reconocimiento mínimo](../public/references/initial-discovery.md). Instrucciones incorporadas al kit no equivalen a integración real aprobada.
+
 ## Alcance inicial
 
 - Una conversación con configuración progresiva, perfil y contexto por organización.
@@ -18,6 +20,8 @@ El objetivo es una carpeta que un usuario pueda configurar con su cuenta, conver
 |---|---|
 | Controles locales, empaquetado limpio y revisión del índice/historial | Implementados; resultados en verification.md |
 | Primer uso en carpeta nueva y cuenta distinta, sin datos del piloto | Pendiente de prueba real |
+| Lectura y escritura acreditadas antes de declarar completa la conexión | Criterio incorporado en 0.4.1; integración real pendiente |
+| Nombre y datos básicos recuperados; presencia por categoría con hasta un registro, sin paginación o descargas y sin una segunda orden | Procedimiento incorporado en 0.4.1; ejecución real pendiente |
 | Venta y cita reales en organización de prueba, con relectura | Pendiente |
 | Cuenta sin permisos suficientes y cambio de organización | Pendiente de prueba real |
 | Fallo de guardado, recuperación y ausencia de duplicados | Lógica local probada; portal pendiente |

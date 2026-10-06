@@ -16,6 +16,8 @@ python .agents/scripts/connector.py --root .qrclima disconnect
 
 El agente ejecuta estos comandos; el usuario puede escribir únicamente «inicia» y conversar. La autorización requiere entrar en el navegador, comprobar un código y elegir permisos. Al terminar vuelve al chat y escribe «continúa». El código y enlace no contienen la credencial.
 
+El asistente también reconoce «inicio» como petición conversacional; el comando Python sigue siendo `inicia`. Después de acreditar lectura y escritura, aplica el [reconocimiento mínimo](initial-discovery.md) en el mismo caso. `read <categoría> --limit 1` permite comprobar una muestra; no uses `sync` como comprobación automática de existencia. El nombre y otros campos básicos deben proceder de la respuesta documentada del servidor o del perfil visible en el portal.
+
 En Windows la conexión se cifra con DPAPI para el usuario del sistema. En macOS/Linux se guarda con permisos 0600, dentro de una carpeta 0700. `.qrclima/` queda fuera de Git y del ZIP. Esto no aísla el secreto frente a programas con acceso a la misma cuenta del sistema: el agente y el ordenador siguen siendo parte del entorno de confianza. No subas esa carpeta ni la incluyas al pedir soporte.
 
 La conexión caduca a los 30 días. Puede revocarse en la página de autorización o con `disconnect`. Cambiar de organización requiere una nueva conexión. `cancel-pending` permite descartar una solicitud que no esté activa, tras comprobarlo con el servidor; no borra datos comerciales.

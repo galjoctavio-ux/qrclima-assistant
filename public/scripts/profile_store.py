@@ -113,7 +113,7 @@ def new_profile(profile_id):
         "connections": {"operating_system": fact(), "browser": {"provider": fact(), "state": "unknown", "checked_at": None}, "vm": {name: fact() for name in ("used", "host", "provider", "purpose", "credential_reference")}, "whatsapp": {"mode": "disabled"}, "sdk": {"mode": "disabled"}},
         "operation_policy": {"sales": "draft_only", "agenda": "draft_only", "finance": "read_only", "external_messages": "disabled", "sdk_writes": "disabled"},
         "policy_history": [], "authorizations": [], "learning_proposals": [],
-        "preferences": [{"key": key, "organization_id": None, "setting": fact()} for key in ("response-style", "preferred-browser", "documents-naming", "appointment-duration-minutes", "quotation-footer")],
+        "preferences": [{"key": key, "organization_id": None, "setting": fact()} for key in ("response-style", "preferred-browser", "documents-naming", "appointment-duration-minutes", "quotation-footer", "project-role", "assistant-role")],
         "improvement_proposals": [],
     }
 

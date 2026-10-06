@@ -11,6 +11,8 @@ Clasifica la petición como `global`, `personal`, `mixed` o `needs_evidence`. Da
 
 Registra la propuesta en `improvement_proposals` del perfil mediante `profile_store.py apply` y revisión vigente. Conserva detalles y evidencias privadas allí. Si la petición es mixta, separa la mejora reutilizable, un parámetro público vacío y el valor privado. Si es una suposición del modelo, mantenla propuesta hasta tener evidencia o instrucción suficiente.
 
+Cuando el usuario evalúe la preparación de 1.0.0, consulta y actualiza [PENDIENTES-1.0.0.md](../../PENDIENTES-1.0.0.md). Documenta prioridad, evidencia disponible, estado, criterio de aceptación y siguiente paso. Distingue una corrección documental de una capacidad implementada y de una prueba aprobada. En la carpeta de uso, estos cambios son propuestas locales revisables; su promoción y las pruebas de publicación quedan pendientes en las fuentes. No incluyas detalles del perfil ni del piloto en el documento público.
+
 Para una corrección global autorizada, reproduce el problema con datos ficticios. Modifica el procedimiento compartido y sus recursos, conserva el comportamiento compatible y comprueba el resultado. Los adaptadores referencian el mismo procedimiento. La existencia de una entrada o el estado escrito `validated` no prueba pruebas ejecutadas.
 
 En el repositorio, documenta el cambio sin datos del piloto, ejecuta las comprobaciones pertinentes y `python tools/check_public.py` antes de compartir. En una carpeta descargada, registra la corrección como propuesta local o parche revisable: esa carpeta no incluye las herramientas de publicación del repositorio. No prometas enviar mejoras a GitHub desde el ZIP ni sincronizar carpetas automáticamente.

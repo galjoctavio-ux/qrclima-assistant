@@ -1,4 +1,18 @@
-# Verificación del piloto 0.4.0
+# Verificación del piloto
+
+## Revisión 0.4.1
+
+Revisión del 5 de octubre de 2026, con datos ficticios y una carpeta extraída del ZIP público.
+
+- Python: 51 casos, 50 correctos y uno omitido por el permiso de Windows para crear enlaces simbólicos.
+- Control de publicación: 81 archivos de fuentes públicas y 50 archivos de la carpeta distribuida; referencias internas resueltas.
+- ZIP workspace 0.4.1: integridad correcta, criterios de conexión, reconocimiento mínimo y registro de pendientes de 1.0.0 incluidos.
+- Perfil ficticio creado mediante el script extraído: nombre, UID, organizaciones y preferencias vacíos; los nuevos parámetros de papeles comienzan en estado desconocido.
+- Inspección del ZIP: sin perfiles, sesiones, contexto comercial, recibos privados, servidor ni integración del portal. Se comprobó que no contiene los datos de identidad observados durante el ensayo privado.
+
+Las correcciones de esta versión son procedimientos y valores iniciales del perfil. No se ejecutaron operaciones con cuentas reales ni se activó el conector en QRclima. La comprobación del índice e historial se ejecuta antes del commit; CI vuelve a comprobarla al subir.
+
+## Evidencia de 0.4.0
 
 Revisión del 5 de octubre de 2026. El conector está implementado y probado localmente; su activación y recorrido con cuentas reales del portal permanecen pendientes.
 

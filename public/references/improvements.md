@@ -15,6 +15,8 @@ Un perfil nuevo tiene preferencias vacías: `response-style`, `preferred-browser
 
 Cada preferencia tiene `key`, `organization_id` y `setting` con valor, estado, fuente y fechas. Alcance nulo significa este perfil personal, no todas las personas. Una preferencia de organización se aplica solo al ID correspondiente. La preferencia específica prevalece sobre la del perfil; un valor `unknown` no impone un valor por defecto. Ninguna preferencia habilita SDK, mensajes, facturas, operaciones o herramientas. Antes de usar una duración, firma o ruta, comprueba que sea pertinente y válida para la tarea.
 
+Durante el desarrollo pueden usarse las claves opcionales `project-role` y `assistant-role`. Sus valores públicos iniciales son nulos, estado `unknown`; el papel que declare una persona se guarda solo en `preferences` de su perfil. Estas claves no conceden propiedad de una organización, acceso técnico ni permisos de publicación.
+
 Las nuevas claves que merezcan un espacio de configuración común se documentan con valor vacío. No copies al paquete el catálogo, horarios, precios o reglas particulares de una empresa para hacerlo funcionar.
 
 ## Registro privado de propuestas
@@ -28,3 +30,5 @@ Promover una mejora significa incorporar y verificar su parte común en el repos
 La publicación se construye desde las fuentes públicas permitidas. El piloto mantiene sus datos fuera de Git desde el primer commit. Una versión nueva conserva el perfil existente; no lo limpia ni lo elimina. La versión 1 será una distribución nueva con campos personales vacíos. Borrar archivos de una rama no elimina datos del historial de Git.
 
 Las mejoras en una carpeta de uso y las mejoras en el repositorio no se sincronizan solas. Lleva una corrección general al repositorio mediante un parche o contribución revisada; conserva las preferencias en la carpeta privada. La versión 1 necesita pruebas reales de uso, además de validadores de archivos.
+
+El registro público de requisitos y criterios de aceptación está en [PENDIENTES-1.0.0.md](../PENDIENTES-1.0.0.md). Los detalles privados y las preferencias siguen en el perfil. Un requisito documentado no cierra una prueba ni elimina un bloqueo de publicación.

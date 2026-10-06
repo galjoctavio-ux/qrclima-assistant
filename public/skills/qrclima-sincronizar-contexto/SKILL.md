@@ -7,6 +7,8 @@ description: Conoce e indexa la información accesible de una organización de Q
 
 Lee el [contrato de ejecución](../../references/runtime.md) y la [guía de sincronización](../../references/synchronization.md). Comprueba cuenta y organización en el navegador o un conector autorizado. La orden de configurar e importar información permite las lecturas de ese alcance; no implica cambios comerciales ni ampliación de permisos.
 
+Si el caso es «inicio» o «inicia» sin una petición de importación ampliada, aplica el [reconocimiento mínimo](../../references/initial-discovery.md) después de acreditar la conexión: datos básicos y hasta un registro por categoría autorizada para comprobar presencia y lectura. Conserva solo el resumen de esa comprobación. No ejecutes `sync`, paginación ni descargas completas por defecto. El recorrido siguiente corresponde a una importación solicitada o a los registros necesarios para una tarea concreta.
+
 Recorre por etapas la información solicitada y accesible: empresa y marca; clientes y conceptos; citas; cotizaciones y documentos. Reutiliza lo comprobado antes de preguntar. Respeta el rol y las pantallas disponibles. Clasifica un módulo bloqueado como inaccesible, y una lista incompleta como parcial.
 
 Guarda metadatos y registros estructurados mediante `scripts/context_store.py`, siguiendo el [contrato de snapshot](../../schemas/context-snapshot.schema.json). La información pertenece al perfil y a una organización concreta, con fecha, fuente, alcance y referencias. Conserva la respuesta parcial si falta una identidad necesaria para el almacenamiento; no inventes IDs técnicos.

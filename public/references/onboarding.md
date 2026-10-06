@@ -1,22 +1,22 @@
 # Entrevista inicial y descubrimiento de contexto
 
-La entrevista se adapta a la primera tarea. Haz una pregunta breve por turno o agrupa dos o tres datos relacionados cuando resulte sencillo responderlos. Guarda respuestas útiles al recibirlas; no esperes a completar todo el cuestionario. Mantén nulos los datos que todavía no sean necesarios.
+La entrevista se adapta a la primera tarea. Al recibir «inicia», comprueba primero el acceso siguiendo el [criterio de conexión fiable](connection-acceptance.md), antes de una entrevista extensa o importación. Haz una pregunta breve por turno o agrupa dos o tres datos relacionados cuando resulte sencillo responderlos. Guarda respuestas útiles al recibirlas; no esperes a completar todo el cuestionario. Mantén nulos los datos que todavía no sean necesarios.
 
 ## 1. Elegir una primera tarea
 
-Si el usuario pidió configurar y conocer el negocio, empieza por conectar su cuenta. Si todavía no eligió un alcance, pregunta: «¿Quieres configurar e importar el contexto del negocio, o resolver primero una venta, cita o consulta?».
+Si el usuario escribió «inicio» o «inicia», empieza por conectar su cuenta. Después de acreditar lectura y escritura del alcance elegido, recupera datos básicos y comprueba presencia de información mediante el [reconocimiento mínimo](initial-discovery.md), dentro del mismo caso. No pidas una segunda orden para reconocer la cuenta. Cuando termine esa etapa, pregunta por la primera tarea si aún no está elegida; una importación ampliada requiere su propio alcance.
 
 Después solicita un alias para el perfil, idioma y zona horaria únicamente si faltan. Un nombre no identifica una cuenta. Explica la ruta privada donde se guardará el perfil y permite elegir otra. No crees chats adicionales por responder esta entrevista.
 
 ## 2. Conectar la cuenta propia
 
-En el proyecto descargable, «inicia» aplica primero `qrclima-conectar-herramienta`. El agente abre la autorización del portal, el usuario elige la organización y vuelve al chat. `status` incorpora la identidad comprobada; `sync` carga contexto privado por etapas. Consulta [el conector](connector.md). Si el servicio está deshabilitado, continúa por la sesión del navegador disponible sin solicitar acceso administrativo.
+En el proyecto descargable, «inicia» aplica primero `qrclima-conectar-herramienta`. El agente abre la autorización del portal, el usuario elige la organización y vuelve al chat. `status` incorpora la identidad comprobada; después comprueba una lectura limitada con los permisos concedidos. `sync` carga contexto privado por etapas cuando ese sea el alcance solicitado. Consulta [el conector](connector.md). Si el servicio está deshabilitado, informa configuración parcial y continúa por la sesión del navegador disponible sin solicitar acceso administrativo. Una sesión del portal no demuestra lectura o escritura por el conector.
 
 Pregunta: «¿Ya puedes entrar al portal de QRclima y qué organización quieres utilizar?».
 
 El usuario inicia sesión en el navegador. Comprueba la organización seleccionada y los datos de cuenta, rol y plan que realmente pueda mostrar el portal o una herramienta autorizada. No pidas al usuario un UID, el nombre de una colección de Firestore ni una llave de servicio para resolver el acceso. Si no puedes comprobar una identidad técnica requerida por el contrato de operación, registra ese faltante y conserva el borrador; no inventes el identificador.
 
-Para comprender sus datos, aplica la [carga inicial](synchronization.md) al alcance solicitado: empresa, clientes, conceptos, citas, cotizaciones y documentos accesibles. Prioriza lo necesario para una primera tarea y conserva alcance y pendientes por etapa. QRclima sigue siendo la fuente actual; los registros se indexan por organización fuera del perfil. La importación no permite otras colecciones, organizaciones o secretos.
+Para el reconocimiento del inicio, recupera los datos básicos disponibles y comprueba existencia y lectura mediante muestras limitadas, sin cargar listados completos. Para una importación ampliada aplica la [guía de sincronización](synchronization.md) al alcance solicitado: empresa, clientes, conceptos, citas, cotizaciones y documentos accesibles. Prioriza lo necesario para una primera tarea y conserva alcance y pendientes por etapa. QRclima sigue siendo la fuente actual; los registros importados se indexan por organización fuera del perfil. La importación no permite otras colecciones, organizaciones o secretos.
 
 ## 3. Completar el entorno necesario
 
@@ -36,7 +36,8 @@ La configuración termina mostrando:
 
 - Perfil y ruta privada, sin imprimir todos sus valores.
 - Cuenta y organización comprobadas, o el faltante concreto.
-- Datos declarados y conexiones verificadas.
+- Datos declarados y conexiones verificadas, distinguiendo sesión del portal, conector, lectura y escritura por operación. Indica configuración parcial cuando falten pruebas.
+- Resultado del reconocimiento mínimo: categorías con datos legibles, sin resultados, inaccesibles o sin comprobar; fuente, fecha y alcance. No afirmar totales ni descarga completa a partir de una muestra.
 - Borrador inicial y qué falta para registrarlo.
 
 Habilitar registros reales se trata mediante el [contrato de ejecución](runtime.md), con la instrucción del usuario y los permisos de QRclima. El perfil parcial es válido; no conviertas todas las preguntas opcionales en requisitos de entrada.

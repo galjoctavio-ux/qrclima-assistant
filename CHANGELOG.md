@@ -1,5 +1,15 @@
 # Cambios
 
+## 0.4.1 — criterios de conexión y reconocimiento mínimo
+
+- «Inicio» e «inicia» comparten el mismo caso de configuración, con prioridad al acceso antes de una entrevista extensa.
+- Se distingue sesión del portal, conector autorizado, lectura y escritura persistida por operación; las capacidades sin evidencia quedan pendientes.
+- Después de acreditar la conexión, el procedimiento recupera datos básicos y comprueba presencia y lectura con hasta un registro por categoría autorizada, sin `sync`, paginación o descargas completas por defecto.
+- Consultas vacías, falta de permisos, categorías no soportadas y errores tienen resultados distintos.
+- Registro de pendientes de 1.0.0 incluido en el ZIP y mantenido por la skill de mejoras, con prioridades y aceptación.
+- Parámetros opcionales `project-role` y `assistant-role` vacíos en perfiles nuevos; valores personales fuera de la distribución.
+- Correcciones de procedimientos y empaquetado. La activación del conector y las pruebas reales de lectura/escritura siguen pendientes; no se modificó ni desplegó el servidor.
+
 ## 0.4.0 — conector propio en piloto
 
 - «Inicia» prepara una conexión autorizada en navegador, ligada a una organización y permisos concretos.

@@ -15,6 +15,10 @@ El agente comprobará Python y abrirá la autorización de QRclima. Inicia sesi�
 
 Si QRclima todavía no ha habilitado esta integración, el agente te lo dirá y utilizará el portal disponible. La carpeta no puede activar el servidor del proveedor. Una VM se pregunta únicamente para servicios externos que realmente la necesiten.
 
+En ese caso la configuración queda parcial. El asistente debe comprobar primero el acceso y distinguir sesión del portal, conector autorizado, lectura y escritura verificada de cada operación. Ver una sesión abierta no demuestra que pueda leer y escribir mediante el conector. Consulta el [criterio de conexión fiable](.agents/references/connection-acceptance.md).
+
+«Inicio» también inicia este flujo. Después de acreditar lectura y escritura, el asistente continúa en el mismo caso: recupera tu nombre y datos básicos disponibles y comprueba si ya hay conceptos, cotizaciones y otras categorías accesibles con consultas pequeñas. No descarga los catálogos ni el historial completos. Consulta el [reconocimiento mínimo](.agents/references/initial-discovery.md); una importación ampliada se realiza cuando la solicitas o una tarea concreta la necesita.
+
 ## Conectar el navegador
 
 En Codex, la sesión puede estar en el navegador integrado, mencionado como `@Browser`, o en un navegador compatible. Para Chrome/Edge, revisa **Configuración → Computer Use/Uso del ordenador**, instala el plugin y la extensión que pida la aplicación y selecciona el navegador en el menú `@` del chat. En otro cliente conecta su propio controlador de navegador siguiendo su documentación. Inicia sesión en QRclima en ese perfil. Los nombres de controles y disponibilidad varían por versión o cuenta.
@@ -55,8 +59,12 @@ Di «guarda esto como preferencia personal» o «esto es una mejora global del a
 
 Hay espacios vacíos para estilo de respuesta, navegador, nombres de documentos, duración de citas y pie de cotizaciones. Puedes añadir otros. Un perfil nuevo no hereda valores de otro usuario. Una personalización no concede permisos de operación. Consulta el procedimiento en `.agents/references/improvements.md`.
 
+## Preparación de la versión 1.0.0
+
+[PENDIENTES-1.0.0.md](.agents/PENDIENTES-1.0.0.md) registra brechas, prioridad, evidencia y criterios de aceptación. La skill `qrclima-mejorar-asistente` mantiene ese documento y las propuestas privadas. Documentar un pendiente no demuestra que su capacidad esté implementada. Los cambios en una carpeta descargada son propuestas locales que deben incorporarse y comprobarse en las fuentes de desarrollo.
+
 ## Comprobación del primer uso
 
-El asistente debe informarte de la ruta del perfil, cuenta/organización comprobadas, qué pudo consultar y qué falta. La versión 0.4.0 es un piloto: scripts, adaptadores y empaquetado se prueban localmente; herramientas y operaciones reales se verifican en tu instalación. El kit no incluye suscripciones ni créditos del proveedor. Su uso y modificación se permiten bajo licencia MIT, incluida en la descarga.
+El asistente debe informarte de la ruta del perfil, cuenta/organización comprobadas, qué pudo consultar y qué falta. La versión 0.4.1 es un piloto: scripts, adaptadores y empaquetado se prueban localmente; herramientas y operaciones reales se verifican en tu instalación. El kit no incluye suscripciones ni créditos del proveedor. Su uso y modificación se permiten bajo licencia MIT, incluida en la descarga.
 
 Documentación oficial: [skills locales](https://learn.chatgpt.com/docs/build-skills), [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) y [conexión del navegador](https://learn.chatgpt.com/docs/chrome-extension).

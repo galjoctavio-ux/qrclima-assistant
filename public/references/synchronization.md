@@ -1,4 +1,8 @@
-# Carga inicial del negocio y consultas posteriores
+# Reconocimiento, carga solicitada del negocio y consultas posteriores
+
+## Alcance del inicio
+
+«Inicio» o «inicia» continúa, después de acreditar lectura y escritura del alcance elegido, con el [reconocimiento mínimo](initial-discovery.md). Recupera los datos básicos de cuenta y comprueba presencia y lectura con hasta un registro por categoría autorizada; sin paginación, descarga de documentos ni indexación de listados. Los apartados de carga siguientes se usan para una importación solicitada o para los registros que requiera una tarea concreta.
 
 ## Acceso
 
@@ -6,7 +10,7 @@ La primera versión usa el portal con una sesión propia en `@Chrome`, otro nave
 
 El [conector propio](connector.md) permite una carga HTTPS autenticada y limitada por organización cuando QRclima lo habilita. `status` guarda la identidad comprobada y `sync` conserva páginas privadas y devuelve un resumen. Los módulos que todavía no soporte se consultan por el portal. Tener la configuración pública de Firebase no autentica una cuenta ni conserva las restricciones de la interfaz.
 
-## Recorrido inicial
+## Recorrido de una importación solicitada
 
 | Etapa | Información | Resultado local |
 |---|---|---|
